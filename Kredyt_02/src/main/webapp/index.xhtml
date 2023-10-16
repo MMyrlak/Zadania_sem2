@@ -9,25 +9,45 @@
 	<title>Kredyt 02</title>
 </h:head>
 <h:body>
+	<style>
+button.ui-button {
+	margin: 1em .5em;
+}
+.field-own{
+	margin: .2em;
+}
+.field-container{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	max-width: 15em;
+}
+</style>
 	<p:panel header="Kalkulator kredytowy 02">
-		<h:form id="bla">
-			<p:panelGrid columns="4">
-				<p:outputLabel for="x" value="Kwota: " />
-				<p:inputText id="x" value="#{kredytBB.x}" />
-
-				<p:outputLabel for="y" value="Lata: " />
-				<p:inputText id="y" value="#{kredytBB.y}" />
-
-				<p:outputLabel for="z" value="Oprecontowania: " />
-				<p:inputText id="z" value="#{kredytBB.z}" />
-			</p:panelGrid>
-			<p:commandButton styleClass="my-commandButton" value="Dodaj"
-				action="#{kredytBB.calc()}" update="@form" />
-			<p:commandButton styleClass="my-commandButton" value="Dodaj AJAX"
-				action="#{kredytBB.calc_AJAX()}" update="messages" />
-			<p:messages id="messages" />
-		</h:form>
+		<p:fieldset legend="Liczenie kredytu" toggleable="true"
+			toggleSpeed="500">
+			<h:form id="bla">
+				<div class="formgroup-inline field-container">
+					<div class="field field-own">
+						<p:outputLabel for="x" styleClass="ui-sr-only " value="Kwota: " />
+						<p:inputText id="x" value="#{kredytBB.x}" placeholder="Kwota: "/>
+					</div>
+					<div class="field field-own">
+						<p:outputLabel for="y" styleClass="ui-sr-only " value="Lata: " />
+						<p:inputText id="y" value="#{kredytBB.y}" placeholder="Lata: "/>
+					</div>
+					<div class="field field-own">
+						<p:outputLabel for="z" styleClass="ui-sr-only " value="Oprecontowania: " />
+						<p:inputText id="z" value="#{kredytBB.z}" placeholder="Oprecontowania: "/>
+					</div>
+				</div>
+				<p:commandButton styleClass="my-commandButton" value="Dodaj"
+					action="#{kredytBB.calc()}" update="@form" />
+				<p:commandButton styleClass="my-commandButton" value="Dodaj AJAX"
+					action="#{kredytBB.calc_AJAX()}" update="messages" />
+				<p:messages id="messages" />
+			</h:form>
+		</p:fieldset>
 	</p:panel>
-
 </h:body>
 </html>

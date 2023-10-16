@@ -52,9 +52,10 @@ public class KredytBB {
 			double y = Double.parseDouble(this.y);
 			double z = Double.parseDouble(this.z);
 			
-			result = (x/(12*y))/(1+z);
-
+			result = (x/(12*y))*(1+(z));
+			
 			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacja wykonana poprawnie", null));
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Kwota: " + x + " | Lata: "+y+" | Oprocentowanie: " +z+"%", null));
 			return true;
 		} catch (Exception e) {
 			ctx.addMessage(null,
@@ -72,7 +73,7 @@ public class KredytBB {
 	}
 	public String calc_AJAX() {
 		if (doTheMath()) {
-			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Wynik: " + result, null));	
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Kredyt: " + result, null));	
 		}
 		return null;
 	}
