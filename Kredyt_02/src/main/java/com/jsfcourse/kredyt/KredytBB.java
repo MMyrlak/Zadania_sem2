@@ -9,9 +9,9 @@ import jakarta.faces.context.FacesContext;
 @Named
 @RequestScoped
 public class KredytBB {
-	private String x;
-	private String y;
-	private String z;
+	private String x = "1000";
+	private String y = "10";
+	private String z = "10";
 	private Double result;
 
 	@Inject

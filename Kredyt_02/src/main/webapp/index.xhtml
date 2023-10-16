@@ -9,29 +9,25 @@
 	<title>Kredyt 02</title>
 </h:head>
 <h:body>
-
 	<p:panel header="Kalkulator kredytowy 02">
-		<div class="card">
-			<h:form id="bla">
-				<span class="ui-float-label">
-			       <p:inputText id="x" value="#{kredytBB.x}"/>
-			       <p:outputLabel for="@previous" value="Kwota: "/>
-			   </span>
-			   <span class="ui-float-label">
-			       <p:outputLabel for="@previous" value="Lata: "/>
-			       <p:inputText id="y" value="#{kredytBB.y}"/>
-			   </span>
-			   <span class="ui-float-label">
-			       <p:inputText id="z" value="#{kredytBB.z}"/>
-			       <p:outputLabel for="@previous" value="Oprecontowania: "/>
-			   </span>
-				<p:commandButton value="Dodaj" action="#{kredytBB.calc()}" update="@form"/>
-				<p:commandButton value="Dodaj AJAX" action="#{kredytBB.calc_AJAX()}" update="messages"/>
-				<p:messages id="messages" />
-			</h:form>
-		</div>
-	</p:panel>
+		<h:form id="bla">
+			<p:panelGrid columns="4">
+				<p:outputLabel for="x" value="Kwota: " />
+				<p:inputText id="x" value="#{kredytBB.x}" />
 
+				<p:outputLabel for="y" value="Lata: " />
+				<p:inputText id="y" value="#{kredytBB.y}" />
+
+				<p:outputLabel for="z" value="Oprecontowania: " />
+				<p:inputText id="z" value="#{kredytBB.z}" />
+			</p:panelGrid>
+			<p:commandButton styleClass="my-commandButton" value="Dodaj"
+				action="#{kredytBB.calc()}" update="@form" />
+			<p:commandButton styleClass="my-commandButton" value="Dodaj AJAX"
+				action="#{kredytBB.calc_AJAX()}" update="messages" />
+			<p:messages id="messages" />
+		</h:form>
+	</p:panel>
 
 </h:body>
 </html>
