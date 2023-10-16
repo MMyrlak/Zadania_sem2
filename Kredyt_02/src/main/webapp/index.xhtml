@@ -10,20 +10,28 @@
 </h:head>
 <h:body>
 
-	<h1>Kalkulator kredytowy 02</h1>
+	<p:panel header="Kalkulator kredytowy 02">
+		<div class="card">
+			<h:form id="bla">
+				<span class="ui-float-label">
+			       <p:inputText id="x" value="#{kredytBB.x}"/>
+			       <p:outputLabel for="@previous" value="Kwota: "/>
+			   </span>
+			   <span class="ui-float-label">
+			       <p:outputLabel for="@previous" value="Lata: "/>
+			       <p:inputText id="y" value="#{kredytBB.y}"/>
+			   </span>
+			   <span class="ui-float-label">
+			       <p:inputText id="z" value="#{kredytBB.z}"/>
+			       <p:outputLabel for="@previous" value="Oprecontowania: "/>
+			   </span>
+				<p:commandButton value="Dodaj" action="#{kredytBB.calc()}" update="@form"/>
+				<p:commandButton value="Dodaj AJAX" action="#{kredytBB.calc_AJAX()}" update="messages"/>
+				<p:messages id="messages" />
+			</h:form>
+		</div>
+	</p:panel>
 
-	<h:form id="bla">
-  		Kwota: <h:inputText value="#{kredytBB.x}" />
-		<br />
-  		Lata: <h:inputText value="#{kredytBB.y}" />
-		<br />
-		Oprecontowania: <h:inputText value="#{kredytBB.z}" />
-		<br />
-		<h:messages id="msg" />
-
-		<h:commandButton value="Dodaj" action="#{kredytBB.calc()}"/>
-		<br />
-	</h:form>
 
 </h:body>
 </html>

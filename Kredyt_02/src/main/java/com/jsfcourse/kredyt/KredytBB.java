@@ -70,4 +70,10 @@ public class KredytBB {
 		}
 		return null;
 	}
+	public String calc_AJAX() {
+		if (doTheMath()) {
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Wynik: " + result, null));	
+		}
+		return null;
+	}
 }
