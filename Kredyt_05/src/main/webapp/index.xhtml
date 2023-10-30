@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/templates/page-template.xhtml">
+
+	<ui:define name="pageContent">
+
+		<p:panel header="Kalkulator kredytowy 05 - Szablonowanie">
+		<p:fieldset legend="Liczenie kredytu" toggleable="true" toggleSpeed="500" styleClass="kredytFieldset">
+			<h:form id="bla">
+				<div class="formgroup-inline field-container">
+					<h:panelGrid columns="3">
+						<p:outputLabel for="x" styleClass="ui-sr-only " value="Kwota: " />
+						<p:inputText id="x" value="#{kredytBB.x}" required="true"
+							requiredMessage="Brak Kwoty" converterMessage="Kwota musi być liczbą" validatorMessage="Kwota nie może być mniejsza od 1000"
+							placeholder="Kwota: ">
+							<f:validateLongRange minimum="1000" />
+						</p:inputText>
+						<p:message for="x" />
+						<p:outputLabel for="y" styleClass="ui-sr-only " value="Lata: " />
+						<p:inputText id="y" value="#{kredytBB.y}" required="true"
+							requiredMessage="Brak ilosci lat" converterMessage="Lata muszą być liczbą" validatorMessage="Kredyt musi być wzięty co najmniej na 2 lata"
+							placeholder="Lata: ">
+							<f:validateLongRange minimum="2" />
+						</p:inputText>
+						<p:message for="y" />
+						<p:outputLabel for="z" styleClass="ui-sr-only "
+							value="Oprecontowania: " />
+						<p:inputText id="z" value="#{kredytBB.z}" required="true"
+							requiredMessage="Brak oprocentowania" converterMessage="Oprocentowanie musi być liczbą" validatorMessage="Oprocentowanie musi być z przedzialu o 0 do 25%"
+							placeholder="Oprecontowania: ">
+							<f:validateDoubleRange minimum = "0.0" maximum = "25.99" />
+						</p:inputText>
+						<p:message for="z" />
+					</h:panelGrid>
+				</div>
+				<p:commandButton styleClass="my-commandButton" value="Dodaj"
+					action="#{kredytBB.calc()}" update="@form" />
+				<p:messages id="messages" />
+			</h:form>
+		</p:fieldset>
+	</p:panel>
+
+	</ui:define>
+
+</ui:composition>
+</html>

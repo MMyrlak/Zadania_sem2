@@ -1,0 +1,27 @@
+body {
+	font-family: 'Century Gothic', helvetica, verdana, arial;
+	background-image: linear-gradient(25deg, rgba(218, 83, 83, 1) 0%, rgba(41, 53, 86, 1) 76%, rgba(24, 24, 27, 1) 100%);
+	background-size: cover;
+	margin: 0;
+}
+
+.bottom-space {
+	margin-bottom: 1em;
+}
+
+.top-space {
+	margin-top: 1em;
+}
+
+#page_wrapper {
+	margin: 1em;
+	min-width: 700px;
+}
+
+button.ui-button {
+	margin: 1em .5em;
+}
+
+.kredytFieldset {
+	width: 15em;
+}
